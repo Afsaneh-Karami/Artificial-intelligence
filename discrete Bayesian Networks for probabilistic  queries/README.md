@@ -1,20 +1,19 @@
 ## Implementing discrete Bayesian Networks to answer probabilistic queries 
 
 The programs were written in Python and it should do the following
-to be able to answer probabilistic queries:
-1. Read the datasets (in CSV format) available via Blackboard. 
-2. Read from a configuration file a predefined structure of each of your Bayesian 
-networks or use randomly generated structures.
-3. Learn the parameters of the Bayesian networks (one network per dataset) using 
-Maximum Likelihood Estimation for example. 
-4. Answer probabilistic queries using one of the algorithms provided in the module.
+to be able to answer probabilistic queries:<br/>
+1. Read the datasets from the CSV format file. <br/>
+2. Read the structure and probability of a Bayesian networks use from a configuration file.<br/>
+3. Learn the parameters of the Bayesian networks using Maximum Likelihood Estimation for example. <br/>
+4. Answer probabilistic queries.<br/>
 I applied an exact inference by enumeration to calculate the probability
 for the discrete Heart and Stroke Disease data sets. Regarding
 the structure of the network, for simplicity, I implemented the
-Naive Bayes. In the following steps, I declare my solution:
+Naive Bayes. In the following steps, I declare my solution:<br/>
+# Read from a configuration file a predefined structure of Bayesian networks
 1- To create the CPT table (conditional probability table)
-for each node in the network, I wrote a program named
-”parameter-learning.py”(), which applies Maximum Likelihood
+for each node in the network, I wrote a program named  
+”parameter-learning.py”(GOTO [parameter-learning link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/discrete%20Bayesian%20Networks%20for%20probabilistic%20%20queries/paremeter_learning.py)), which applies Maximum Likelihood
 estimation to create CPT tables. The program gets data from
 a training CSV file (A comma-separated values file) and goes
 through rows to count matched situations. The program’s input
@@ -24,8 +23,7 @@ a node has no parent, it will find possible values for the node
 and count compatible samples. If the node has parents, it will
 produce all possible combinations of values and find matched
 samples. A Laplacian smoothing is added to the probability
-formula to avoid zero probability. I used two functions ”read-data” and ”update-variable-key-values” from the workshop’s
-materials.
+formula to avoid zero probability. 
 2- I Completed the config file based on the CPT tables(”config-heart-NaiveBayes.txt” and ”config-stroke-NaiveBayes.txt”).
 3- I used an exact inference by enumeration algorithm
 ”BayesNetExactInference.py” [1]. In inference by enumeration, a conditional probability is computed by summing terms
