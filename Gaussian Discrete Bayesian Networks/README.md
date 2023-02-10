@@ -17,7 +17,7 @@ in the following table. For some metrics, Gaussian performs better like AUC whic
 <img width="406" alt="Screenshot 2023-02-10 091233" src="https://user-images.githubusercontent.com/78735911/218051349-95df3bb4-d193-46e2-b979-cfbd4610a283.png">
 </p>
 
-## Gussian sampling and comparing with weighting sampling:
+## Gaussian sampling and comparing with weighting sampling:
 I wrote a program ”GussianBayesNetApproxInference.py” (GOTO [GussianBayesNetApproxInference link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/Gaussian%20Discrete%20Bayesian%20Networks/GussianBayesNetApproxInference.py))
 for the approximate inference methods with Gaussian sampling. It works more like Likelihood Weighting sampling.
 This program takes the probability density from the config
