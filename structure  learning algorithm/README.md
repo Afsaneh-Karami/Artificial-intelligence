@@ -4,9 +4,13 @@ PC-stable and Hill Climbing algorithm. The performance of
 Naive Bayes and Bayesian Networks are compared based on
 the BIC (Bayesian information criterion). I used stroke data
 sets for this part.<br/>
-1- I used PC-stable in the program ”make-skeleton-PCstable.py” (GOTO [Reject link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/Inference%20by%20stochastic%20simulation/BayesNetApproxInference_reject.py)) to draw the skeleton of the network based on
-the picture from lecture week 3 slide 7. The code at level zero
-combines all the combinations of two variables without any
+1- I used PC-stable in the program ”make-skeleton-PCstable.py” (GOTO [PCstable link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/structure%20%20learning%20algorithm/make_skeleton_PCstable.py)) to draw the skeleton of the network based on
+the following picture. 
+<p align="center">
+<img width="407" alt="Screenshot 2023-02-10 004921" src="https://user-images.githubusercontent.com/78735911/217972259-061c6268-7128-46a8-9c88-5ff98a1983a0.png">
+</p>
+
+The code at level zero combines all the combinations of two variables without any
 parent and makes a list of dependent edges. I implemented
 the null hypothesis to evaluate independence between two
 nodes based on the data set and create edges between two
@@ -21,27 +25,25 @@ are checked. The program’s output is a list of edges in the
 Bayesian network. About the stroke data sets, the residence
 type variable was assessed as independent from all other
 variables, so I eliminated it from the test and train data CSV
-files.
+files.<br/>
 2- The result of the skeleton program was applied in the
-”CycleDetector.py” file as input to find cycles in the graph.
-I used the workshop material and changed it. The program
+”CycleDetector.py” file (GOTO [CycleDetector link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/structure%20%20learning%20algorithm/CycleDetector.py)) as input to find cycles in the graph. The program
 checked the existence of any cycles in the graph and removed
 the last edge in the detected cycle to create an acyclic graph
 and then recalled the function for the next possible cycle.
 Even though it is not a good solution to delete the last edge, I
 assume that to go ahead with my project. The program output
-is a list of edges of the Bayesian network acyclic graph.
+is a list of edges of the Bayesian network acyclic graph.<br/>
 3- The output of step two goes to the ”making-structure.py”
-program to make the structure for the config file.
-4- I created the config file(config-stroke-skeleton.txt).
-5- I applied ”BayesNetexactInference-Gscore.py” to calculate
+program (GOTO [making-structure link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/structure%20%20learning%20algorithm/making_structure.py)) to make the structure for the config file.<br/>
+4- I created the config file(config-stroke-skeleton.txt) (GOTO [config link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/structure%20%20learning%20algorithm/config-stroke%20-%20skeleton.zip)). <br/>
+5- I applied ”BayesNetexactInference-Gscore.py” (GOTO [Gscore link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/structure%20%20learning%20algorithm/BayesNetexactInference_Gscore.py)) to calculate
 BIC and compare the result of naive bays with the Bayesian
-network. This program is a workshop material that I change
-to get the CPT table from the config file and add the ”prob”
+network. This program get the CPT table from the config file and add the ”prob”
 function that can calculate the conditional probability for
 several parents. I evaluated two structures by the data sets
-”stroke-data-discretized-train.csv”.
-The result of table 4 showed that in terms of Log-Likelihood,
+”stroke-data-discretized-train.csv”. 
+The result of table below showed that in terms of Log-Likelihood,
 the Bayesian network is better than Naive Bayes, but it has
 a high penalty value that makes the Bayesian Information
 Criterion so much. The high value of the penalty means
@@ -53,4 +55,10 @@ took so much time (about three hours), this solution is so
 time-consuming. Another option is to decrease the complexity
 of the structure (decrease penalty) by limiting the number of
 parents to three, who have the lowest null hypothesis value.
-In this way training and inferencing time decrease.
+In this way training and inferencing time decrease.<br/>
+
+<p align="center">
+<img width="455" alt="Screenshot 2023-02-10 010245" src="https://user-images.githubusercontent.com/78735911/217973941-a8eb45a2-0190-4565-952f-08a19b16cb07.png">
+<p/>
+
+
