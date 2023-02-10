@@ -63,4 +63,24 @@ gives a nearer prediction to the exact inference.
 <img width="482" alt="Screenshot 2023-02-09 103910" src="https://user-images.githubusercontent.com/78735911/217789533-532169aa-742c-49ef-9d33-38ff5daa31b1.png">
 </p>
 
+## evaluation 
+To compare the accuracy and computation
+time of different methods, I wrote three new
+programs ”BayesNetApproxInference-reject- test.py” (GOTO [reject sampling link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/Inference%20by%20stochastic%20simulation/BayesNetApproxInference_reject%20_%20test.py)),
+”BayesNetApproxInference-weight-test.py” (GOTO [weight sampling link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/Inference%20by%20stochastic%20simulation/BayesNetApproxInference_weight_%20test.py)) and
+”BayesNetApproxInference-Gibbs-test.py” (GOTO [Gibbs sampling link](https://github.com/Afsaneh-Karami/Artificial-intelligence/blob/main/Inference%20by%20stochastic%20simulation/BayesNetApproxInference_Gibbs_%20test.py)). The function
+”read-data-test” reads the values from the test file and puts
+all variables except target and stroke (which we want to
+predict) as evidence (”creat-query” function). It samples
+based on its method for all rows in the CSV file, and the
+”compute-performance” function assesses the accuracy. The accuracy of methods for 1000
+samples is shown in table below. The accuracy of Gibbs sampling
+is higher than weighting because of better distribution. For
+rejection sampling, it is hard to create a sample compatible
+with the evidence because there is a lot of evidence. I
+increased the number of sampling to 20000, but I could not
+find a matched sample, and I think it makes sense.<br/>
+<p align="center">
+<img width="487" alt="Screenshot 2023-02-10 003303" src="https://user-images.githubusercontent.com/78735911/217970327-c8a97ec2-4e0e-490b-a0f2-501c959390c9.png">
 
+</p>
